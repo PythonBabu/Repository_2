@@ -1,0 +1,25 @@
+def create(self, request):
+
+        serializer=StudentSerializer(data=request.data)
+        serializer.is_valid()
+        row = serializer.data
+        user = row['user']
+        full_name = user['full_name']
+        first_name = full_name.split(' ')[0]
+
+        email = first_name + '@schoolX.com'
+
+        _e = User.objects.filter(email=email)
+        if _e:
+
+                email = first_name + ....?? + '@schoolX.com'
+
+
+
+        email = username = email
+
+        user,created = User.objects.get_or_create(email=email, 
+            defaults={'full_name':row['user']['full_name'],'addresss':row['user']['addresss'],'username':username})
+        student = Student.objects.create(user_id=user.id)
+
+        return Response({'email':email})

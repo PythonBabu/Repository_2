@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if type == "Registration" %}
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="img" href="#">Level Up</a>
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Online Classes</a></li>
+                        <li><a href="#">Offline Classes</a></li>
+                        <li><a href="#">Online + Offline Classes</a></li>
+                        <li><a href="#">Separate Notes</a></li>
+                        <li><a href="#">Personal Guidance</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Speciality <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Weekly Test</a></li>
+                        <li><a href="#">Special Interview Questions</a></li>
+                        <li><a href="#">......</a></li>
+                        <li><a href="#">.......</a></li>
+                        <li><a href="#">.........</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+        <br><br><br><br>
+{% endif %}
+</body>
+</html>

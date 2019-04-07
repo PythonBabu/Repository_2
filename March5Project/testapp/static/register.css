@@ -1,0 +1,61 @@
+ /*This are styles for register.htxml only*/
+.navbar {
+    background-color: #010c1e;
+    font-size: 25px;
+}
+ .navbar-brand{font-size: 20px;}
+
+ .navbar-right {
+     align-content: space-around;
+ }
+
+ .con1, .jumbotron {
+     background-color: aqua;
+     border-radius: 20px
+ }
+
+ body {
+     background-image: url("https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+     /*background-color: silver;*/
+     background-repeat: no-repeat;
+     background-size: 100%;
+ }
+
+ hr {
+     background-color: black;
+     height: 1px;
+ }
+
+ #partition {
+     height: 350px;
+     width: 10px;
+     border-radius: 10px
+ }
+
+ #partition2 {
+     height: 2px;
+     border-radius: 10px
+ }
+
+ .sp1 {
+     color: #025ae8;
+     margin: 100px;
+     
+ }
+.sp2 {
+     color: #ba188e;
+         margin: 100px;
+
+ }
+
+ ol {
+     color: #eea236;
+ }
+
+ ul{color:#2b542c;
+
+ }
+
+ marquee{ color: #070f07;
+     font-size: 30px;
+ }

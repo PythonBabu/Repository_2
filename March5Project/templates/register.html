@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static "bootstrap.css" %}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "register.css" %}" type="text/css">
+    <style>
+        .doc_detail{border: 2px solid black; padding: 50px}
+        p{
+            color: black;}
+        .code_border{ border: 4px solid black; margin-right: 800px;
+            padding: 20px;
+            font-size: 20px;
+        }
+        .color{color: #1e4618;
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+<body>
+{% block body_block %}
+    {% if type == "Registration" %}
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" id="img" href="/first_page/">Level Up</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   href="#" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Online Classes</a></li>
+                                    <li><a href="#">Offline Classes</a></li>
+                                    <li><a href="#">Online + Offline Classes</a></li>
+                                    <li><a href="#">Separate Notes</a></li>
+                                    <li><a href="#">Personal Guidance</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                                    aria-haspopup="true" aria-expanded="false">Speciality<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Weekly Test</a></li>
+                                    <li><a href="#">Special Interview Questions</a></li>
+                                    <li><a href="#">......</a></li>
+                                    <li><a href="#">.......</a></li>
+                                    <li><a href="#">.........</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br><br><br><br>
+<div class="container con1">
+    <div class="jumbotron">
+        <h2> This is Registration Form Please Fill all fields</h2>
+    {{ msg1 }}
+        <form method="post" onreset="true">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" name="fname" required id="firstname" placeholder="First Name">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input type="text" class="form-control" name="lname" id="lastname" placeholder="Last Name">
+
+            </div>
+            <h4>{{ msg1 }}{{ msg }}</h4>
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="number" class="form-control" name="mobile" id="mobile" placeholder="#9111199123">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password here">
+            </div>
+            <fieldset class="form-group">
+                <legend> Gender</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="optionsRadios2" value="Male" checked>Male
+                        &nbsp;&nbsp;&nbsp;<label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" id="optionsRadios2" value="Female">Female
+                    </label>
+                    </label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label for=" select1"> Select Course</label>
+                <select class="form-control" name="course" id=" select1">
+                    {% for s in course %}
+                        <option> {{ s.Course_Name }}</option>
+                    {% endfor %}
+
+                </select>
+            </div>
+            <div class="checkbox">
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" required> Remember Me
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    <a href="register.html">Check</a>
+    </div></div>
+{% endif %}
+{% if type == "Thanks" %}
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="img" href="#">Level Up</a>
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                        aria-haspopup="true" aria-expanded="false">
+                    Services <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Online Classes</a></li>
+                        <li><a href="#">Offline Classes</a></li>
+                        <li><a href="#">Online + Offline Classes</a></li>
+                        <li><a href="#">Separate Notes</a></li>
+                        <li><a href="#">Personal Guidance</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav">
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Speciality <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Weekly Test</a></li>
+                        <li><a href="#">Special Interview Questions</a></li>
+                        <li><a href="#">......</a></li>
+                        <li><a href="#">.......</a></li>
+                        <li><a href="#">.........</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-item nav-link active" href="/log_out/">Log Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav><br><br><br>
+    <div class="container" style="background-color: white">
+        <div class="jumbotron" style="background-color: white">
+            {{ session }}
+            <h3> Hello {{ name }},
+                <hr>
+            </h3>
+            <h4> You have selected {{ course }} , to know more about  {{ course }}
+                <a href="/section_detail/">click here</a></h4>
+                        <hr>
+            {% if course_name == "C" %}
+                <p>C is a procedural programming language. It was initially developed by Dennis Ritchie
+                    between 1969 and 1973. It was mainly developed as a system programming language to
+                    write operating system. The main features of C language include low-level access to
+                    memory, simple set of keywords, and clean style, these features make C language suitable
+                    for system programming like operating system or compiler development.
+                    Many later languages have borrowed syntax/features directly or indirectly from C language.
+                    Like syntax of Java,PHP, JavaScript and many other languages is mainly based on C language.
+                    C++ is nearly a superset of C language (There are few programs that may compile in C, but
+                    not in C++).
+                </p>
+                <p class="color"><strong>Beginning with C programming:</strong></p>
+                <ol>
+                    <li class="color"><b>Structure of a C program</b><br>
+                        After the above discussion, we can formally assess the structure of a C program. By structure,
+                        it is meant that any program can be written in this structure only. Writing a C program in any
+                        other structure will hence lead to a Compilation Error.<p></p>
+                        <p>The structure of a C program is as follows:</p>
+                        <p><img src="https://www.geeksforgeeks.org/wp-content/uploads/StructureOfCprogram.png" alt=""
+                                width="800" height="469" class="aligncenter size-full wp-image-265101"
+                                srcset="https://www.geeksforgeeks.org/wp-content/uploads/StructureOfCprogram.png 800w, https://www.geeksforgeeks.org/wp-content/uploads/StructureOfCprogram-300x176.png 300w, https://www.geeksforgeeks.org/wp-content/uploads/StructureOfCprogram-768x450.png 768w, https://www.geeksforgeeks.org/wp-content/uploads/StructureOfCprogram-660x387.png 660w"
+                                sizes="(max-width: 800px) 100vw, 800px"></p><br>
+                        <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- post_top_responsive -->
+                        <ins class="adsbygoogle" style="display: block; height: 75px;"
+                             data-ad-client="ca-pub-9465609616171866" data-ad-slot="4501693235" data-ad-format="auto"
+                             data-adsbygoogle-status="done">
+                            <ins id="aswift_2_expand"
+                                 style="display: inline-table; border: none; height: 75px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 604px; background-color: transparent;">
+                                <ins id="aswift_2_anchor"
+                                     style="display: block; border: none; height: 75px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 604px; background-color: transparent; overflow: hidden;">
+                                    <iframe width="604" height="75" frameborder="0" marginwidth="0" marginheight="0"
+                                            vspace="0" hspace="0" allowtransparency="true" scrolling="no"
+                                            allowfullscreen="true"
+                                            onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}"
+                                            id="aswift_2" name="aswift_2"
+                                            style="left: 0px; position: absolute; top: 0px; border: 0px; width: 604px; height: 75px;"></iframe>
+                                </ins>
+                            </ins>
+                        </ins>
+                        <p>The components of the above structure are:</p>
+                        <ol>
+                            <li class="color"><b>Header Files Inclusion</b>: The first and foremost component is the inclusion of the
+                                Header files in a C program.<br>
+                                A header file is a file with extension .h which contains C function declarations and
+                                macro definitions to be shared between several source files.<p></p>
+                                <p>Some of C Header files:</p>
+                                <ul>
+                                    <li>stddef.h – Defines several useful types and macros.</li>
+                                    <li>stdint.h – Defines exact width integer types.</li>
+                                    <li>stdio.h – Defines core input and output functions</li>
+                                    <li>stdlib.h – Defines numeric conversion functions, pseudo-random network
+                                        generator, memory allocation
+                                    </li>
+                                    <li>string.h – Defines string handling functions</li>
+                                    <li>math.h – Defines common mathematical functions</li>
+                                </ul>
+                                <p><b>Syntax to include a header file in C:</b></p>
+                                <pre>#include &lt;(header_file_name).h&gt;
+                                </pre>
+                            </li>
+                            <li class="color" ><b>Main Method Declaration:</b> The next part of a C program is to declare the main()
+                                function. The syntax to declare the main function is:
+                                <p><b>Syntax to Declare main method:</b></p>
+                            </li>
+                            <li class="color"><b>Variable Declaration:</b> The next part of any C program is the variable declaration.
+                                It
+                                refers to the variables that are to be used in the function. Please note that in C
+                                program,
+                                no variable can be used without being declared. Also in a C program, the variables are
+                                to be
+                                declared before any operation in the function.
+                            </li>
+                            <li class="color"><b>Body:</b> Body of a function in C program, refers to the operations that are
+                                performed in
+                                the functions. It can be anything like manipulations, searching, sorting, printing, etc.
+                            </li>
+                            <li class="color"><b>Return Statement:</b> The last part in any C program is the return statement. The
+                                return statement refers to the returning of the values from a function. This return
+                                statement and return value depend upon the return-type of the function. For example, if
+                                the return type is void, then there will be no return statement. In any other case,
+                                there will be a return statement and the return value will be of the type of the
+                                specified return-type.
+                            </li>
+
+                        </ol>
+                    </li>
+                    <li class="color"><strong>Writing first program:</strong><br>
+                        Following is first program in C<p></p>
+                        <div class="code-block">
+                            <div class="code-gutter">
+                                <div class="editor-buttons-container">
+                                    <div class="editor-buttons">
+                                        <p></p></div>
+                                    <p></p></div>
+                                <p></p></div>
+                            <div class="code-container">
+                                <div id="highlighter_660718" class="syntaxhighlighter nogutter  ">
+                                    <table border="0" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                            <td class="code">
+                                                <div class="container">
+                                                    <div class="code_border">
+                                                    <div class="line number1 index0 alt2"><code class="preprocessor">#include
+                                                        &lt;stdio.h&gt; </code></div>
+                                                    <div class="line number2 index1 alt1"><code
+                                                            class="color1 bold">int</code> <code
+                                                            class="plain">main(</code><code
+                                                            class="keyword bold">void</code><code
+                                                            class="plain">) </code></div>
+                                                    <div class="line number3 index2 alt2"><code class="plain">{ </code>
+                                                    </div>
+                                                    <div class="line number4 index3 alt1"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="functions bold">printf</code><code
+                                                            class="plain">(</code><code
+                                                            class="string">"GeeksQuiz"</code><code
+                                                            class="plain">); </code></div>
+                                                    <div class="line number5 index4 alt2"><code
+                                                            class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code
+                                                            class="keyword bold">return</code> <code
+                                                            class="plain">0; </code></div>
+                                                    <div class="line number6 index5 alt1"><code class="plain">} </code>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div><br><br><br>
+                        <p>Let us analyze the program line by line.<br>
+                            <em><strong>Line 1: [ #include &lt;stdio.h&gt; ]</strong></em> In a C program, all lines
+                            that start with <strong># </strong>are processed by <a
+                                    href="http://en.wikipedia.org/wiki/C_preprocessor" target="_blank">preprocessor </a>which
+                            is a program invoked by the compiler. In a very basic term, <a
+                                    href="http://en.wikipedia.org/wiki/C_preprocessor" target="_blank">preprocessor </a>takes
+                            a C program and produces another C program. The produced program has no lines starting with
+                            #, all such lines are processed by the preprocessor. In the above example, preprocessor
+                            copies the preprocessed code of stdio.h to our file. The .h files are called header files in
+                            C. These header files generally contain declaration of functions. We need stdio.h for the
+                            function printf() used in the program. </p><br>
+                        <p><em><strong>Line 2 [ int main(void) ]</strong></em> There must to be starting point from
+                            where execution of compiled C program begins. In C, the execution typically begins with
+                            first line of main(). The void written in brackets indicates that the main doesn’t take any
+                            parameter (See <a href="https://www.geeksforgeeks.org/difference-int-main-int-mainvoid/"
+                                              target="_blank">this </a>for more details). main() can be written to take
+                            parameters also. We will be covering that in future posts.<br>
+                            The int written before main indicates return type of main(). The value returned by main
+                            indicates status of program termination. See <a
+                                    href="https://www.geeksforgeeks.org/fine-write-void-main-cc/"
+                                    target="_blank">this </a>post for more details on return type.</p>
+                        <p><em><strong>Line 3 and 6: [ { and } ]</strong></em> In C language, a pair of curly brackets
+                            define a scope and mainly used in functions and control statements like if, else, loops. All
+                            functions must start and end with curly brackets. </p>
+                        <p><em><strong>Line 4 [ printf(“GeeksQuiz”); ]</strong></em> <a
+                                href="http://www.cplusplus.com/reference/cstdio/printf/" target="_blank">printf()</a> is
+                            a standard library function to print something on standard output. The semicolon at the end
+                            of printf indicates line termination. In C, semicolon is always used to indicate end of
+                            statement. </p>
+                        <p><em><strong>Line 5 [ return 0; ]</strong></em> The return statement returns the value from
+                            main(). The returned value may be used by operating system to know termination status of
+                            your program. The value 0 typically means successful termination.
+                        </p>
+                    <li class="color"><strong>How to excecute the above program:</strong><br>
+                        Inorder to execute the above program, we need to have a compiler to compile and run our
+                        programs. There are certain online compilers like <a href="https://ide.geeksforgeeks.org/">https://ide.geeksforgeeks.org/</a>,
+                        <a href="http://ideone.com/" target="_blank">http://ideone.com/</a> or <a
+                                href="http://codepad.org/" target="_blank">http://codepad.org/</a> that can be used to
+                        start C without installing a compiler.<br>
+                        <em><strong></strong></em>
+                        <p></p>
+                        <p><em><strong>Windows:</strong></em> There are many compilers available freely for compilation
+                            of C programs like <a href="http://www.codeblocks.org/downloads/26" target="_blank">Code
+                                Blocks </a>&nbsp;and <a href="http://www.bloodshed.net/download.html" target="_blank">Dev-CPP</a>.
+                            &nbsp; We strongly recommend Code Blocks.</p>
+                        <p><em><strong>Linux:</strong></em> For Linux, <a
+                                href="http://en.wikipedia.org/wiki/GNU_Compiler_Collection" target="_blank">gcc </a>comes
+                            bundled with the linux, &nbsp;Code Blocks can also be used with Linux.
+                        </p></li>
+                </ol>
+            {% elif course_name == "C##" %}
+
+                <center><h2><b>Learn C++ Programming</b></h2></center>
+                <center><h4><i>The Definitive Guide</i></h4></center><br>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>C++ ranks 4th in popularity according to 2016 IEEE spectrum Top Programming Language
+                            ranking. Learning C++ is a wise investment for all programmers.</p><br>
+                        <p>This guide answers all your questions related to C++ on what is it,
+                            when is it used, why is it used and how to get yourself started with it.</p><br></div>
+                    <div class="col-md-4 doc_detail" align="center">
+                        {% for s in selected %}
+                            <a href="/docs_detail/?id={{ s.id }}">--&nbsp;&nbsp;&nbsp;&nbsp;{{ s.Doc_Title }}</a><br>
+                        {% endfor %}
+                    </div>
+                </div>
+                <center><h3><b>What is C++ (programming language)?</b></h3></center>
+                <div class="jumbotron" style="background-color: silver">
+                    <p>“C++ is a statically-typed, free-form, (usually) compiled, multi-paradigm,
+                        intermediate-level general-purpose middle-level programming language.”</p>
+                    <p>In simple terms, C++ is a sophisticated, efficient and a general-purpose
+                        programming language based on C. It was developed by Bjarne Stroustrup in 1979.</p>
+                    <p>Many of today’s operating systems, system drivers, browsers and games use C++
+                        as their core language. This makes C++ one of the most popular languages today.</p>
+                    <p>Since it is an enhanced/extended version of C programming language, C and C++
+                        are often denoted together as C/C++.</p>
+                    <h3>History of C++</h3>
+                    <hr>
+                        <p>While Bjarne Stroustrup was working in AT&amp;T Bell Labs in 1979, he faced difficulties in
+                            analyzing UNIX kernel for distributed systems. The current languages were either too slow or
+                            too low level. So, he set forward to create a new language.</p>
+
+                        <p>For building this language, he chose C. Why C? Because it is a general purpose language and
+                            is very efficient as well as fast in its operations.</p>
+
+                        <p>He used his knowledge of object-oriented model from SIMULA and began working on class
+                            extensions to C. His aim was to create a language with far higher level of abstraction while
+                            retaining the efficiency of C.</p>
+
+                        <p>This new programming language was named C withClasses, but was later renamed to C++ (++
+                            refers to the increment operator in C).</p>
+
+                        <h4>C++98</h4>
+
+                        <p>When C++ was first released in 1985, there were no official standards released. It was only
+                            until 1998 that C++ was first standardized which was known as C++98.</p>
+
+                        <h4>C++03</h4>
+
+                        <p>In 2003, a new version of C++ standard was published. C++03 wasn’t really a new standard
+                            altogether but a bug fix release identified with C++98 “<b>to ensure greater consistency and
+                                portability</b>”.</p>
+
+                        <h4>C++11 (C++0x)</h4>
+
+                        <p>The next major standard for C++ was released in 2011 and it was named C++11. Since, C++
+                            committee was sure this update would be released within 2009, they unofficially named it
+                            C++0x. Later, when they didn’t, Stroustrup joked that C++0x went hexadecimal - C++0xB
+                            (C++11). Nice save.</p>
+
+                        <h4>C++14 (C++1y)</h4>
+
+                        <p>C++14 is the current iteration of C++ released in 2014. Like C++03, it included mainly bug
+                            fixes and simple improvements to C++11.</p>
+
+                        <h4>C++17 (C++1z)</h4>
+
+                        <p>The supposedly next iteration to C++ which is planned to be rolled out in 2017. It is
+                            expected to have many new features. Most of the features planned for this version are
+                            already completed.</p>
+                    </div>
+                </section>
+                </div>
+                <p></p>
+            {% elif course_name == "Python" %}
+                <p>Python is an interpreted, high-level, general-purpose programming language. Created
+                    by Guido van Rossum and first released in 1991, Python has a design philosophy that
+                    emphasizes code readability, notably using significant whitespace. It provides constructs
+                    that enable clear programming on both small and large scales</p>
+                <div class="section" id="the-python-tutorial">
+                    <span id="tutorial-index"></span>
+                    <h1>The Python Tutorial<a class="headerlink" href="#"
+                                              title="Permalink to this headline">¶</a></h1>
+                    <p>Python is an easy to learn, powerful programming language. It has efficient
+                        high-level data structures and a simple but effective approach to
+                        object-oriented programming. Python’s elegant syntax and dynamic typing,
+                        together with its interpreted nature, make it an ideal language for scripting
+                        and rapid application development in many areas on most platforms.</p>
+                    <p>The Python interpreter and the extensive standard library are freely available
+                        in source or binary form for all major platforms from the Python Web site,
+                        <a class="reference external" href="https://www.python.org/">https://www.python.org/</a>, and
+                        may be freely distributed. The same site also
+                        contains distributions of and pointers to many free third party Python modules,
+                        programs and tools, and additional documentation.</p>
+                    <p>The Python interpreter is easily extended with new functions and data types
+                        implemented in C or C++ (or other languages callable from C). Python is also
+                        suitable as an extension language for customizable applications.</p>
+                    <p>This tutorial introduces the reader informally to the basic concepts and
+                        features of the Python language and system. It helps to have a Python
+                        interpreter handy for hands-on experience, but all examples are self-contained,
+                        so the tutorial can be read off-line as well.</p>
+                    <p>For a description of standard objects and modules, see <a class="reference internal"
+                                                                                 href="#"><span
+                            class="std std-ref">The Python Standard Library</span></a>.
+                        <a class="reference internal" href="#"><span
+                                class="std std-ref">The Python Language Reference</span></a> gives a more formal
+                        definition of the language. To write
+                        extensions in C or C++, read <a class="reference internal"
+                                                        href="#"><span
+                                class="std std-ref">Extending and Embedding the Python Interpreter</span></a> and
+                        <a class="reference internal" href="#"><span class="std std-ref">Python/C API Reference Manual</span></a>.
+                        There are also several books covering Python in depth.</p>
+                    <p>This tutorial does not attempt to be comprehensive and cover every single
+                        feature, or even every commonly used feature. Instead, it introduces many of
+                        Python’s most noteworthy features, and will give you a good idea of the
+                        language’s flavor and style. After reading it, you will be able to read and
+                        write Python modules and programs, and you will be ready to learn more about the
+                        various Python library modules described in <a class="reference internal"
+                                                                       href="#"><span
+                                class="std std-ref">The Python Standard Library</span></a>.</p>
+                    <p>The <a class="reference internal" href="#"><span class="std std-ref">Glossary</span></a>
+                        is also worth going through.</p>
+                    <marquee style="color: blue"> This is For Showing Purpose Only Don't Think it is Real one</marquee>
+                    <div class="toctree-wrapper compound">
+                        <ul>
+                            <li class="toctree-l1"><a class="reference internal" href="#">1. Whetting Your
+                                Appetite</a></li>
+                            <li class="toctree-l1"><a class="reference internal" href="#">2. Using the
+                                Python Interpreter</a>
+                                <ul>
+                                    <li class="toctree-l2"><a class="reference internal"
+                                                              href="#">2.1.
+                                        Invoking the Interpreter</a>
+                                        <ul>
+                                            <li class="toctree-l3"><a class="reference internal"
+                                                                      href="#">2.1.1.
+                                                Argument Passing</a></li>
+                                            <li class="toctree-l3"><a class="reference internal"
+                                                                      href="#">2.1.2.
+                                                Interactive Mode</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="toctree-l2"><a class="reference internal"
+                                                              href="#">2.2.
+                                        The Interpreter and Its Environment</a>
+                                        <ul>
+                                            <li class="toctree-l3"><a class="reference internal"
+                                                                      href="#">2.2.1.
+                                                Source Code Encoding</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="toctree-l1"><a class="reference internal" href="#">3. An Informal
+                                Introduction to Python</a>
+                                <ul>
+                                    <li class="toctree-l2"><a class="reference internal"
+                                                              href="#">3.1.
+                                        Using Python as a Calculator</a>
+                                        <ul>
+                                            <li class="toctree-l3"><a class="reference internal"
+                                                                      href="#">3.1.1.
+                                                Numbers</a></li>
+                                            <li class="toctree-l3"><a class="reference internal"
+                                                                      href="#">3.1.2.
+                                                Strings</a></li>
+                                            <li class="toctree-l3"><a class="reference internal"
+                                                                      href="#">3.1.3.
+                                                Unicode Strings</a></li>
+                                            <li class="toctree-l3"><a class="reference internal"
+                                                                      href="#">3.1.4. Lists</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="toctree-l2"><a class="reference internal"
+                                                              href="#">3.2.
+                                        First Steps Towards Programming</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="toctree-l2"><a class="reference internal"
+                                                      href="#">8.6. Defining
+                                Clean-up Actions</a></li>
+                            <li class="toctree-l2"><a class="reference internal"
+                                                      href="#">8.7.
+                                Predefined Clean-up Actions</a></li>
+                        </ul>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="classes.html">9. Classes</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.1. A
+                                    Word About Names and Objects</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.2.
+                                    Python Scopes and Namespaces</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.3. A First
+                                    Look at Classes</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                                  href="#">9.3.1.
+                                            Class Definition Syntax</a></li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                                  href="#">9.3.2. Class
+                                            Objects</a></li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                                  href="#">9.3.3.
+                                            Instance Objects</a></li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                                  href="#">9.3.4. Method
+                                            Objects</a></li>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                                  href="#">9.3.5.
+                                            Class and Instance Variables</a></li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.4. Random Remarks</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.5. Inheritance</a>
+                                    <ul>
+                                        <li class="toctree-l3"><a class="reference internal"
+                                                                  href="#">9.5.1.
+                                            Multiple Inheritance</a></li>
+                                    </ul>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.6.
+                                    Private Variables and Class-local References</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.7. Odds and Ends</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.8.
+                                    Exceptions Are Classes Too</a></li>
+                                <li class="toctree-l2"><a class="reference internal" href="#">9.9.
+                                    Iterators</a></li>
+                                <li class="toctree-l2"><a class="reference internal" href="#">9.10.
+                                    Generators</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">9.11. Generator
+                                    Expressions</a></li>
+                            </ul>
+                        </li>
+                        <li class="toctree-l1"><a class="reference internal" href="#">10. Brief Tour of
+                            the Standard Library</a>
+                            <ul>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.1.
+                                    Operating System Interface</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.2. File Wildcards</a>
+                                </li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.3. Command
+                                    Line Arguments</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.4.
+                                    Error Output Redirection and Program Termination</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.5. String
+                                    Pattern Matching</a></li>
+                                <li class="toctree-l2"><a class="reference internal" href="#">10.6.
+                                    Mathematics</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.7. Internet
+                                    Access</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.8. Dates and
+                                    Times</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.9. Data
+                                    Compression</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.10.
+                                    Performance Measurement</a></li>
+                                <li class="toctree-l2"><a class="reference internal"
+                                                          href="#">10.11. Quality
+                                    Control</a></li>
+                            </ul>
+                            the Standard Library — Part II</a>
+                        </li>
+                    </div>
+                </div>
+                </div>
+            {% elif course_name == "Django" %}
+                <h2> This is second place for Django Documentation <span>This site is genuine of <b>djangoprojects.com</b></span></span></h2>
+                <div role="main">
+                    <div class="section">
+                           <h1>Meet Django</h1>
+                        <p>
+                            Django is a high-level Python Web framework that encourages rapid development and clean,
+                            pragmatic design.
+                            Built by experienced developers, it takes care of much of the hassle of Web development, so
+                            you can focus
+                            on writing your app without needing to reinvent the wheel. It’s free and open source.
+                        </p>
+                        <dl class="list-features">
+                            <dt><i class="icon icon-bolt inview"></i> Ridiculously fast.</dt>
+                            <dd>
+                                <p>Django was designed to help developers take applications from concept to completion
+                                    as quickly as possible.</p>
+                            </dd>
+                            <dt><i class="icon icon-lock inview"></i> Reassuringly secure.</dt>
+                            <dd>
+                                <p>Django takes security seriously and helps developers avoid many common security
+                                    mistakes.</p>
+                            </dd>
+                            <dt><i class="icon icon-dashboard inview"></i> Exceedingly scalable.</dt>
+                            <dd>
+                                <p>Some of the busiest sites on the Web leverage Django’s ability to quickly and
+                                    flexibly scale.</p>
+                            </dd>
+                        </dl>
+                        <a href="https://www.djangoproject.com/start/overview/" class="cta outline">Learn more about
+                            Django</a>
+                    </div>
+                    <div class="section">
+                        <h1>Stay in the loop</h1>
+                        <p>Subscribe to one of our mailing lists to stay up to date with everything in the Django
+                            community:</p>
+                        <div class="layout-2col">
+                            <div class="col form-email">
+                                <h3><a href="https://groups.google.com/group/django-users">Using Django</a></h3>
+                                <p class="meta">Get help with Django and follow announcements.</p>
+                                <form class="form-input"
+                                      action="https://groups.google.com/group/django-users/boxsubscribe">
+                                    <input type="email" name="email" placeholder="Enter email">
+                                    <button type="submit">
+                                        <i class="icon icon-envelope-o"></i>
+                                        <span class="visuallyhidden">Subscribe</span>
+                                    </button>
+                                </form>
+                                <p class="meta">
+                                    You can also subscribe by sending an email to
+                                    <a href="mailto:django-users+subscribe@googlegroups.com">
+                                        django-users+subscribe@googlegroups.com</a> and following the
+                                    instructions that will be sent to you.
+                                </p>
+                            </div>
+                            <div class="col form-email last-child">
+                                <h3><a href="https://groups.google.com/group/django-developers">Contributing to
+                                    Django</a></h3>
+                                <p class="meta">Contribute to the development of Django itself.</p>
+                                <form class="form-input"
+                                      action="https://groups.google.com/group/django-developers/boxsubscribe">
+                                    <input type="email" name="email" placeholder="Enter email">
+                                    <button type="submit">
+                                        <i class="icon icon-envelope-o"></i>
+                                        <span class="visuallyhidden">Subscribe</span>
+                                    </button>
+                                </form>
+                                <p class="meta">
+                                    Before asking a question about how to contribute, read
+                                    <a href="https://docs.djangoproject.com/en/dev/internals/contributing/">
+                                        Contributing to Django</a>. Many frequently asked questions are answered there.
+                                </p>
+                                <hr>
+                                <p class="meta">
+                                    You can also subscribe by sending an email to
+                                    <a href="mailto:django-developers+subscribe@googlegroups.com">
+                                        django-developers+subscribe@googlegroups.com</a> and following the
+                                    instructions that will be sent to you.
+                                </p>
+                            </div>
+                        </div>
+                        <p>
+                            We have a few other specialized lists (mentorship, i18n, ...). You can
+                            find more information about them in our
+                            <a href="https://docs.djangoproject.com/en/dev/internals/mailing-lists/">
+                                mailing list documentation</a>.
+                        </p>
+                    </div>
+                    <!-- END #content-secondary -->
+                    <a href="#top" class="backtotop"><i class="icon icon-chevron-up"></i> Back to Top</a>
+                </div>
+            {% endif %}
+{% endif %}
+{% endblock %}
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>

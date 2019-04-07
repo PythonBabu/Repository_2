@@ -1,0 +1,83 @@
+{% extends 'register.html' %}
+{% include 'register.html' %}
+{% load staticfiles %}
+{% block  navbar%}
+{% endblock %}
+{% block body_block %}
+    <style>
+        td{
+            font-size: x-large;
+        }
+        .details,.j1{
+            background-color: #faf2cc;
+        }
+    </style>
+    <div class="container con1">
+    <div class="jumbotron">
+        <h3></h3>
+    {{msg }}
+        {% if course_name == "C" %}
+            <p>It was mainly developed as a system programming language to write operating
+                system. The main features of C language include low-level access to memory,
+                simple set of keywords, and clean style, these features make C language
+                suitable for system programming like operating system or compiler development.
+            </p>
+        {% elif course_name == "C##" %}
+            <p>C++ ranks 4th in popularity according to 2016 IEEE spectrum Top Programming Language
+                ranking. Learning C++ is a wise investment for all programmers.</p><br>
+            <p>This guide answers all your questions related to C++ on what is it,
+                when is it used, why is it used and how to get yourself started with it.</p>
+        {% elif course_name == "Python" %}
+            <p>Python is an interpreted, high-level, general-purpose programming language. Created
+                by Guido van Rossum and first released in 1991, Python has a design philosophy that
+                emphasizes code readability, notably using significant whitespace. It provides constructs
+                that enable clear programming on both small and large scales</p>
+        {% elif course_name == "Django" %}
+            <p>
+                Django is a high-level Python Web framework that encourages rapid development and clean,
+                pragmatic design.
+                Built by experienced developers, it takes care of much of the hassle of Web development, so
+                you can focus
+                on writing your app without needing to reinvent the wheel. It’s free and open source.
+            </p>
+
+        {% endif %}
+        <style>
+            .j1 {
+                padding-left: 90px
+            }
+        </style>
+    {% if typo == "Open_File" %}
+        <div class="container details">
+            <div class="jumbotron j1">
+                <h3>{{ path.read }}</h3>
+            </div>
+        </div>
+    {% endif %}
+    {% if typo == "Open_Video" %}
+        <video width="530" height="440" controls >
+            <source src="{{ path }}" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    {% endif %}
+    {% if typo == "Open_Audio" %}
+        <audio controls>
+        <source src="{{ path }}" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+    {% endif %}
+        {% for obj in documents %}
+            <ul>
+                <li><a href="/docs_detail/?id={{ obj.id }}">{{ obj.Section_Name }} </a></li>
+            </ul>
+            <h3></h3>
+        {% endfor %}
+                <a href="/log_out/" class="btn btn-danger">Log Out</a>
+        <a href="/section_detail/" class="btn btn-primary"> See all</a>
+
+    </div>
+    </div>
+{#    <video width='400' controls>#}
+{#<source src='{{ MEDIA_URL }}{{ path }}' type='video/mp4'>#}
+{#        Your browser does not support the video tag.</video>#}
+{% endblock %}

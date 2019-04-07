@@ -1,0 +1,148 @@
+{% extends 'register.html' %}
+{% load static %}
+<body>
+{% block body_block %}
+    <style>
+    .row1{margin-top: 830px}
+    table{ background-color: white;}
+    .form-group{ margin: 20px}
+
+    </style>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="img" href="/first_page/"><span class="glyphicon glyphicon-home"
+                                                                aria-hidden="true"></span> Level Up</a>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                            aria-haspopup="true" aria-expanded="false">Services <span
+                            class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Online Classes</a></li>
+                            <li><a href="#">Offline Classes</a></li>
+                            <li><a href="#">Online + Offline Classes</a></li>
+                            <li><a href="#">Separate Notes</a></li>
+                            <li><a href="#">Personal Guidence</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="nav-item nav-link active " href="/register/">Sign Up</a></li>
+                    <li><a class="nav-item nav-link active " href="/login/">Sign In</a></li>
+                </ul>
+                </button><br>
+            </div>
+        </div>
+        </div>
+    </nav><br><br><br><br>
+    {{ session }}
+    {% if type == "To Login" %}
+        <form method="post" id="form">
+            {% csrf_token %}
+            <table align="center">
+                <tr>
+                    <th>{{ msg }}
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="number" class="form-control" name="mobile" id="mobile"
+                                   placeholder="#9111199123">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password"
+                                   placeholder="Password here">
+                        </div>
+                        <center><button type="submit" class="btn btn-primary">Login</button></center>
+                    </th>
+                </tr>
+            </table>
+        </form>
+    {% endif %}
+
+{#    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>#}
+{#    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>#}
+    <div class="row row1">
+        <marquee>Practice Makes Perfect</marquee>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <h3><span class="sp1"> Our Facilities</span>
+                <hr>
+                <ul>
+                    <li>We have best faculties ...</li>
+                    <li>We provides best facilities..</li>
+                    <li>We are providing free notes here...</li>
+                    <li>There is big lab for practice...</li>
+                    <li>Lab Assistanse to help you...</li>
+                    <li>Come and see all the facilities by Own</li>
+                </ul>
+            </h3>
+        </div>
+        <div class="col-md-1">
+            <hr id="partition">
+        </div>
+        <div class="col-md-5">
+            <h3><span class="sp2"> Extra Facilities</span>
+                <hr>
+                <ul>
+                    <li>We Provides best Placement training</li>
+                    <li>We provides best facilities..</li>
+                    <li>We are providing free notes here...</li>
+                    <li>There is big lab for practice...</li>
+                    <li>Lab Assistanse to help you...</li>
+                    <li>Come and see all the facilities by Own</li>
+                </ul>
+            </h3>
+        </div>
+    </div>
+    <hr id="partition2">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <h3><span class="sp1"> Class Room Courses</span>
+                <hr>
+                <ol>
+                    <li>C</li>
+                    <li>C++</li>
+                    <li>Python + Django</li>
+                    <li>Java</li>
+                    <li>Devops</li>
+                    <li>AWS</li>
+                    <li>IOT</li>
+                    <li>Big Data</li>
+                    <li>Data Science</li>
+                    <li>Real Time Projects</li>
+                </ol>
+            </h3>
+        </div>
+        <div class="col-md-1">
+            <hr id="partition">
+        </div>
+        <div class="col-md-5">
+            <h3><span class="sp2"> Online Training Course</span>
+                <hr>
+                <ol>
+                    <li>Python</li>
+                    <li>Django</li>
+                    <li>Rest API</li>
+                    <li>AWS</li>
+                    <li>Devops</li>
+                    <li>Azure</li>
+                    <li>Big Data</li>
+                    <li>Data Science</li>
+                    <li>Machine Learning</li>
+                    <li>Artificial Intelligence</li>
+                    <li>Real Time Projects</li>
+                </ol>
+            </h3>
+        </div>
+    </div>
+    </div>
+{% endblock %}
+</body>

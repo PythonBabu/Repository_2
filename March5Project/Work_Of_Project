@@ -1,0 +1,17 @@
+1-) models.py => 1. One Table for Course (Cid,Cname/Title)
+                 2. Table by Section_table(Sid, Sname , Cid(fk))
+                 3. One Table for Docs (Did, Title(of the Docs(file/video)), file_path, Cid, Sid)
+                 4. One Table for User (Uid, UName, Pass, Cid)
+
+2-) Form.html=> To Sign Up and Sign In
+3-) After Sign IN Show His All Details Related TO Course N All
+    After Sign Up Let him Select Some Course N Show Their Details After Selection
+4-) Only Has a Authority TO add New Courses
+    Can Create Section For Course
+    Can Add Documents for a Section Of Course
+
+
+
+%-) You have to add so many new things which will make your page more effective and more
+    stylish like other apps(you can search on google by name"https://www.programiz.com/cpp-programming")
+    Try to do work like that only..
