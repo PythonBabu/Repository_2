@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<title>FeedBack Page</title>
+
+{% block content %}
+    <div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-8">
+            <h1 class="text-center bg-success text-white">Your Feedbacks Are---</h1>
+            {% if feedbacks %}
+                {% for s in feedbacks %}
+                    <b id="nameid" class="text-capitalize">Name:{{ s.name }}</b><br>
+                    Rating : {{ s.rating }}<br>
+                    Date : {{ s.date}}<br>
+                    Feedback : {{ s.feedback}}<br>
+                {% endfor %}
+                {% else %}
+                <h1>Feedback Are Not Available</h1>
+            {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}<br>
+            <input type="submit" class="btn btn-success">
+            <input type="reset" class="btn btn-danger">
+
+        </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}

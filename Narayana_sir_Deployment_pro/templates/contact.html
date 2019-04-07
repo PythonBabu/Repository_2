@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+<title>Contact Page</title>
+<body>
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-md-8">
+                <form>
+                    <h1 class="text-center text-white bg-success">Please Enter Your Contact Details</h1>
+                    {% csrf_token %}
+                    {{ form }}<br>
+                    <center>
+                        <input type="submit" value="Submit" class="btn btn-success">
+                        <input type="reset" value="Clear" class="btn btn-danger">
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}</body>

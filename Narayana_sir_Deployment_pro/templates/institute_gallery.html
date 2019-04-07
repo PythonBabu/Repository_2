@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+    <title>Gallery Page</title>
+<style>
+    img{
+        opacity: 0.2;
+    }
+</style>
+{% block content %}
+    <h1 class="text-center text-danger">Galleria Of DurgaSoft </h1>
+<div class="container">
+<div class="row">
+    <div class="col-md-6">
+        <img style="height: 100%; width: 100%" src="{% static 'images/face1.jpg'%}">
+    </div>
+    <div class="col-md-6">
+        <img style="height: 100%; width: 100%" src="{% static 'images/face2.jpg'%}">
+    </div>
+</div>
+    <div class="row">
+    <div class="col-md-6">
+        <img style="height: 100%; width: 100%" src="{% static 'images/face3.jpg'%}">
+    </div>
+    <div class="col-md-6">
+        <img style="height: 100%; width: 100%" src="{% static 'images/face4.jpg'%}">
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-6">
+        <img style="height: 100%; width: 100%" src="{% static 'images/face5.jpg'%}">
+    </div>
+        <div class="col-md-6">
+        <img style="height: 100%; width: 100%" src="{% static 'images/face6.jpg'%}">
+    </div>
+</div>
+</div>
+{% endblock %}
